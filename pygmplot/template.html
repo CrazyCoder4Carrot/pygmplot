@@ -1,0 +1,109 @@
+<html>
+
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>Google Maps</title>
+    <style>
+    /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+
+    #map {
+        height: 100%;
+    }
+    /* Optional: Makes the sample page fill the window. */
+
+    html,
+    body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .controls {
+        margin-top: 10px;
+        border: 1px solid transparent;
+        border-radius: 2px 0 0 2px;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        height: 32px;
+        outline: none;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    #pac-input {
+        background-color: #fff;
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: 300;
+        margin-left: 12px;
+        padding: 0 11px 0 13px;
+        text-overflow: ellipsis;
+        width: 300px;
+    }
+
+    #pac-input:focus {
+        border-color: #4d90fe;
+    }
+
+    .pac-container {
+        font-family: Roboto;
+    }
+
+    #type-selector {
+        color: #fff;
+        background-color: #4d90fe;
+        padding: 5px 11px 0px 11px;
+    }
+
+    #type-selector label {
+        font-family: Roboto;
+        font-size: 13px;
+        font-weight: 300;
+    }
+
+    #target {
+        width: 345px;
+    }
+    </style>
+    <script type="text/javascript" src="plotdata.js"></script>
+    <!--     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=visualization&sensor=true_or_false"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    function initialize() {
+        map = new google.maps.Map(document.getElementById('map'), init);
+        for (var i = 0; i < markers.length; i++) {
+            var marker = new google.maps.Marker(markers[i]);
+            marker.setMap(map);
+        }
+        for (var i = 0; i < lines.length; i++) {
+            var line = new google.maps.Polyline(lines[i])
+            line.setMap(map);
+        }
+        for (var i = 0; i < circles.length; i++) {
+            var circle = new google.maps.Circle(circles[i]);
+            circle.setMap(map);
+        }
+        for (var i = 0; i < polygons.length; i++) {
+            var polygon = new google.maps.Polygon(polygons[i]);
+            polygon.setMap(map);
+        }
+    }
+    function loadScript() {
+        var template = `https://maps.googleapis.com/maps/api/js?key=${key}&libraries=places&callback=initialize`
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = template
+        document.body.appendChild(script);
+    }
+    window.onload = loadScript;
+
+    </script>
+</head>
+
+<body style="margin:0px; padding:0px;">
+    <div id="map" style="width: 100%; height: 100%;"></div>
+<!--     <script id='key' src="https://maps.googleapis.com/maps/api/js?key=${key}&libraries=places&callback=initialize"></script> -->
+</body>
+
+</html>
