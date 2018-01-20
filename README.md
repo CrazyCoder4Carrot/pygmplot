@@ -20,8 +20,6 @@ plot.draw('test.html')
 
 
 
-![]()
+![](https://raw.githubusercontent.com/CrazyCoder4Carrot/pygmplot/master/doc/pic/pic.png)
 
-Inspied by Michael Woods(
-
-- [physicsmichael@gmail.com](mailto:physicsmichael@gmail.com)) gmplot[https://github.com/vgm64/gmplot] module
+Inspied by Michael Woods(physicsmichael@gmail.com) [gmplot](https://github.com/vgm64/gmplot) module
